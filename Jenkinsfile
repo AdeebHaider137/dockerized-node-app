@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def appImage = docker.build('dockerized-node-app')
+                    def appImage = docker.build('mydna')
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                     sh 'docker rm my-app-container || true'
                     
                     // Run the new container
-                    sh 'docker run -d --name my-app-container -p 5000:5000 dockerized-node-app'
+                    sh 'docker run -d --name my-app-container -p 5000:5000 mydna'
                 }
             }
         }
